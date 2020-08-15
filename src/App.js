@@ -1,10 +1,10 @@
 import React from 'react';
-import Counter from './counter.js';
+import Count from './count.js';
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Count max={8} step={2} />
     </div>
   );
 }

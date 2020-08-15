@@ -1,25 +1,26 @@
 import React from 'react';
 
 class Counter extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       count: 0,
     };
-    this.decrement = this.decrement.bind(this);
-    this.increment = this.increment.bind(this);
-    this.reset = this.reset.bind(this);
   }
 
-  decrement() {
+  decrement = () => {
     this.setState({ count: this.state.count - 1 });
-  }
-  increment() {
-    this.setState({ count: this.state.count + 1 });
-  }
-  reset() {
+  };
+  increment = () => {
+    const { max, step } = this.props;
+    this.setState((state) => {
+      if (state.count >= max) return;
+      return { count: state.count + step };
+    });
+  };
+  reset = () => {
     this.setState({ count: 0 });
-  }
+  };
   render() {
     const { count } = this.state;
     return (
